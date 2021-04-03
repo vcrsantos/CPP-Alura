@@ -1,6 +1,6 @@
 CXXFLAGS = -std=c++11
 BIN=main
-FILE= jogodaforca.cpp
+FILE= jogodavelha.cpp
 
 
 run:
