@@ -1,9 +1,8 @@
 CXXFLAGS = -std=c++11
-BIN=main
-FILE= jogodaforca.cpp
+FILE=main
 
 
-run:
-	@rm -f $(BIN)
-	@g++ $(FILE) -o $(BIN) $(CXXFLAGS)
-	@./$(BIN)
+forca:
+	@rm -f $(FILE)
+	@g++ jogodaforca.cpp -o forca $(CXXFLAGS)
+	@./forca
