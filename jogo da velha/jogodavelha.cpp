@@ -88,11 +88,16 @@ bool continua_jogo(){
     return true;
 }
 
-void le_entrada(){
+void le_entrada(char jogador){
     int entrada;
     
     cout << endl;
-    cout << "Digite a posição: ";
+    if(jogador == 'X')
+        cout << "Vez do X, ";
+    else
+        cout << "Vez do O, ";
+
+    cout << "digite a posição: ";
     cin >> entrada;
 
     while(foi_preenchido(entrada)){
@@ -101,7 +106,7 @@ void le_entrada(){
         cin >> entrada;
     }
 
-    tabuleiro[entrada] = 'X';
+    tabuleiro[entrada] = jogador;
     posicao_preenchida[entrada] = true; 
 }
 
@@ -109,17 +114,22 @@ int main(){
     inicia_tabuleiro();
 
     while(continua_jogo()){
-        cout << "Teste: " << verifica_tabuleiro() << endl;
         imprime_tabuleiro();
-        
-        le_entrada();
-  
+        le_entrada('X');
+        system("clear");  
+
+        if (!continua_jogo())
+            break;
+
+        imprime_tabuleiro();
+        le_entrada('O');
         system("clear");     
     }
 
 
     cout << "***Fim de jogo!***" << endl;
     imprime_tabuleiro();
+    cout << endl;
     cout << "O vencedor é o " << verifica_tabuleiro() << endl;
 
 
