@@ -2,21 +2,7 @@
 #include <iostream>
 
 
-Titular::Titular (CPF cpf, std::string nome):
-cpf(cpf),
-nome(nome)
+Titular::Titular (CPF cpf, std::string nome, std::string senha) 
+    : Pessoa(cpf,nome), Autenticavel(senha)
 {
-    Titular::verificaTamanhoNome();
-}
-
-std::string Titular::getNome(){
-    return nome;
-}
-
-
-void Titular::verificaTamanhoNome (){
-    if (nome.size() < 5){
-        std::cout << "Nome muito curto." << std::endl;
-        exit(1);
-    }
 }
